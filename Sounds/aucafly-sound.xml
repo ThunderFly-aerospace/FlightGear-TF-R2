@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+ 
+<PropertyList>
+ <fx>
+
+
+<!-- Current Engine Sound -->
+    <engine>
+      <name>engine #1 running</name>
+      <mode>looped</mode>
+      <path>Aircraft/AUCAFLYCORE/E1.wav</path>
+<condition>		
+  <greater-than-equals>		
+   <property>velocities/groundspeed-kt</property>
+   <value>20</value>
+  </greater-than-equals>
+ </condition>
+  <volume>
+        <property>engines/engine/mp-osi</property>
+        <factor>0.00375</factor>
+        <min>0.5</min>
+        <max>2.0</max>
+      </volume>
+      <pitch>
+        <property>engines/engine/rpm</property>
+        <factor>0.0005</factor>
+        <min>0.2</min>
+        <max>2.0</max>
+        <offset>0.15</offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+
+<click>
+      <name>brake-parking on</name>
+      <path>Aircraft/AUCAFLYCORE/Park-Break-On.wav</path>
+       <condition>
+          <property>controls/gear/brake-parking</property>
+    </condition>    
+      <volume>
+           <factor>2.0</factor>
+      </volume>
+       <reference-dist>100</reference-dist>
+    <max-dist>1000</max-dist>      
+    </click>
+
+    <click>
+      <name>brake-parking off</name>
+      <path>Aircraft/AUCAFLYCORE/Park-Break-Off.wav</path>
+       <condition>
+         <not>
+             <property>controls/gear/brake-parking</property>
+          </not>
+    </condition>    
+      <volume>
+           <factor>2.0</factor>
+      </volume>
+       <reference-dist>100</reference-dist>
+    <max-dist>1000</max-dist>      
+    </click>
+<click>
+      <name>indicator left</name>
+	<mode>looped</mode>
+      <path>Aircraft/AUCAFLYCORE/indicator.wav</path>
+       <condition>
+             <property>controls/lighting/indicator-left</property>
+    </condition>    
+      <volume>
+           <factor>2.0</factor>
+      </volume>
+       <reference-dist>100</reference-dist>
+    <max-dist>1000</max-dist>      
+    </click>
+<click>
+      <name>indicator right</name>
+	<mode>looped</mode>
+      <path>Aircraft/AUCAFLYCORE/indicator.wav</path>
+       <condition>
+             <property>controls/lighting/indicator-right</property>
+    </condition>    
+      <volume>
+           <factor>2.0</factor>
+      </volume>
+       <reference-dist>100</reference-dist>
+    <max-dist>1000</max-dist>      
+    </click>
+ <rumble>
+      <name>rumble</name>
+      <mode>looped</mode>
+      <path>Sounds/rumble.wav</path>
+      <condition>
+        <and>
+          <or>
+            <property>gear/gear[0]/wow</property>
+            <property>gear/gear[1]/wow</property>
+            <property>gear/gear[2]/wow</property>
+	<property>gear/gear[3]/wow</property>
+          </or>
+          <or>
+            <greater-than>
+              <property>gear/gear[0]/rollspeed-ms</property>
+              <value>1</value>
+            </greater-than>
+            <greater-than>
+              <property>gear/gear[1]/rollspeed-ms</property>
+              <value>1</value>
+            </greater-than>
+            <greater-than>
+              <property>gear/gear[2]/rollspeed-ms</property>
+              <value>1</value>
+            </greater-than>
+          </or>
+        </and>
+      </condition>
+      <volume>
+        <property>velocities/airspeed-kt</property>
+        <type>log</type>
+        <factor>0.5</factor>
+        <max>2.5</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </rumble>
+ </fx>
+</PropertyList>

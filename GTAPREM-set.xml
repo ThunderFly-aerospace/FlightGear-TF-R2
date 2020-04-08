@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+
+<PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
+<sim>
+
+	<description>GTA V Premier</description>
+	<author>Bulldog RS (Aucafly)</author>
+	<status>Ground Vehicle</status>
+	<flight-model>yasim</flight-model>
+	<aero>rs</aero>
+<startup>
+      <splash-texture>Aircraft/GTAPREM/splash.png</splash-texture>
+    </startup> 
+	<model>
+		<path>Aircraft/GTAPREM/Models/GTAPREM.xml</path>
+	<livery>
+      <file type="string">BaseColor</file>
+    </livery>
+	</model> 
+<sound>
+      <path>Aircraft/GTAPREM/Sounds/aucafly-sound.xml</path>
+    </sound>
+
+	<view n="0">
+		<internal archive="y">true</internal>
+		<config>
+			<x-offset-m archive="y" type="double">-0.4066</x-offset-m><!--blender y-->
+			<y-offset-m archive="y" type="double">1.23553</y-offset-m><!-- blender z-->
+			<z-offset-m archive="y" type="double">0.13326</z-offset-m><!-- blender x -->
+			<pitch-offset-deg>-10.0</pitch-offset-deg>
+<default-field-of-view-deg type="double">65</default-field-of-view-deg>
+			<field-of-view>65</field-of-view>
+<limits>
+      <enabled type="bool">true</enabled>
+      <left>
+        <heading-max-deg type="double">60</heading-max-deg>
+        <x-offset-max-m type="double">0.15</x-offset-max-m>
+        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+      </left>
+      <right>
+        <heading-max-deg type="double">60</heading-max-deg>
+        <x-offset-max-m type="double">0.15</x-offset-max-m>
+        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+      </right>
+    </limits>
+		</config>
+	</view>
+
+	<view n="1">
+		<config>
+			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
+		</config>
+	</view>
+	
+	<view n="2">
+		<config>
+			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
+		</config>
+	</view>
+	
+	<view n="3">
+		<config>
+			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
+		</config>
+	</view>
+	
+	<view n="4">
+		<config>
+			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
+		</config>
+	</view>
+	
+	<view n="5">
+		<config>
+			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
+		</config>
+	</view>
+	
+	<view n="6">
+		<config>
+			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
+		</config>
+	</view>
+
+	<hud>
+		<enable3d>false</enable3d>
+	</hud>
+<help>
+      <title>RS System</title>
+      <text>Shift+B to toggle brakes off and on.  Key M to engage reverse and m to disengage reverse. Key [ to toggle left indicator and key ] to toggle right indicator.</text>
+         </help>
+<multiplay>
+	 <generic>
+	 <float n="0" alias="/sim/model/door-positions/door/position-norm" />
+	<float n="1" alias="/gear/gear[0]/rollspeed-ms"/> <!--wheel rotation-->
+	  <float n="2" alias="/gear/gear[1]/rollspeed-ms"/> <!--wheel rotation-->
+	  <float n="3" alias="/gear/gear[2]/rollspeed-ms"/> <!--wheel rotation-->
+	  <float n="4" alias="/gear/gear[3]/rollspeed-ms"/> <!--wheel rotation-->
+	  <float n="5" alias="/controls/flight/aileron"/> <!--wheel steering-->
+	<float n="6" alias="/sim/model/lights/indicator-left/state"/>
+	<float n="7" alias="/sim/model/lights/indicator-right/state"/>
+<float n="8" alias="/controls/gear/brake-parking"/>
+</generic>
+	</multiplay>
+<menubar>
+    <default>
+      <menu n="100">
+        <label>BulldogRS</label>
+        <enabled type="bool">true</enabled>
+        <item>
+          <label>Select Livery</label>
+          <binding>
+            <command>nasal</command>
+            <script>aircraft.livery.dialog.open();</script>
+          </binding>
+        </item>
+      </menu>
+    </default>
+  </menubar>
+</sim>
+
+<engines>
+	<engine n="0">
+		<rpm type="double">2</rpm>
+	</engine>
+	<engine n="1">
+		<rpm type="double">2</rpm>
+	</engine>
+</engines>
+
+<controls>
+	<flight>
+		<aileron alias="/controls/flight/rudder" />
+	</flight>
+	<gear>
+		<brake-parking>1</brake-parking>
+	</gear>
+</controls>
+<input>
+	<keyboard>
+        <key n="77"> 
+          <name>M</name>
+          <desc>engage Reverse</desc>
+          <binding> 
+            <command>property-assign</command>
+            <property>controls/engines/engine[0]/mixture</property>
+            <value type="double">0.0</value>
+          </binding>
+        </key>
+
+        <key n="109"> 
+          <name>m</name>
+          <desc>disengage Reverse</desc>
+          <binding> 
+            <command>property-assign</command>
+            <property>controls/engines/engine[0]/mixture</property>
+            <value type="double">1.0</value>
+          </binding>
+        </key>
+		<key n="91"> 
+			<name>[</name>
+			<desc>Toggle left indicator lights</desc>
+			<binding> 
+				<command>property-toggle</command>
+				<property>/controls/lighting/indicator-left</property>
+			</binding>
+		</key>
+		<key n="93"> 
+			<name>]</name>
+			<desc>Toggle right indicator lights</desc>
+			<binding> 
+				<command>property-toggle</command>
+				<property>/controls/lighting/indicator-right</property>
+			</binding>
+		</key>
+	</keyboard>
+</input>
+<nasal>
+	<aucafly>
+		<file>Aircraft/GTAPREM/Nasal/bulldogrs.nas</file>        
+	</aucafly>  
+</nasal>
+
+</PropertyList>
+
+
+
+
