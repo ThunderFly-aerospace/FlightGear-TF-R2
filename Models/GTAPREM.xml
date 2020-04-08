@@ -9,10 +9,10 @@
       ##############################################################################
     -->
     <![CDATA[
-      var livery_update = aircraft.livery_update.new("Aircraft/GTAVPREM/Models/Liveries");
+      var livery_update = aircraft.livery_update.new("Aircraft/TF-R2/Models/Liveries");
     ]]>
     </load>
-  
+
   <unload><![CDATA[
     livery_update.stop();
   ]]></unload>

@@ -9,16 +9,16 @@
 	<flight-model>yasim</flight-model>
 	<aero>rs</aero>
 <startup>
-      <splash-texture>Aircraft/GTAPREM/splash.png</splash-texture>
-    </startup> 
+      <splash-texture>Aircraft/TF-R2/splash.png</splash-texture>
+    </startup>
 	<model>
-		<path>Aircraft/GTAPREM/Models/GTAPREM.xml</path>
+		<path>Aircraft/TF-R2/Models/GTAPREM.xml</path>
 	<livery>
       <file type="string">BaseColor</file>
     </livery>
-	</model> 
+	</model>
 <sound>
-      <path>Aircraft/GTAPREM/Sounds/aucafly-sound.xml</path>
+      <path>Aircraft/TF-R2/Sounds/aucafly-sound.xml</path>
     </sound>
 
 	<view n="0">
@@ -51,31 +51,31 @@
 			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
 		</config>
 	</view>
-	
+
 	<view n="2">
 		<config>
 			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
 		</config>
 	</view>
-	
+
 	<view n="3">
 		<config>
 			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
 		</config>
 	</view>
-	
+
 	<view n="4">
 		<config>
 			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
 		</config>
 	</view>
-	
+
 	<view n="5">
 		<config>
 			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
 		</config>
 	</view>
-	
+
 	<view n="6">
 		<config>
 			<target-y-offset-m archive="y" type="double">1.6</target-y-offset-m>
@@ -138,37 +138,37 @@
 </controls>
 <input>
 	<keyboard>
-        <key n="77"> 
+        <key n="77">
           <name>M</name>
           <desc>engage Reverse</desc>
-          <binding> 
+          <binding>
             <command>property-assign</command>
             <property>controls/engines/engine[0]/mixture</property>
             <value type="double">0.0</value>
           </binding>
         </key>
 
-        <key n="109"> 
+        <key n="109">
           <name>m</name>
           <desc>disengage Reverse</desc>
-          <binding> 
+          <binding>
             <command>property-assign</command>
             <property>controls/engines/engine[0]/mixture</property>
             <value type="double">1.0</value>
           </binding>
         </key>
-		<key n="91"> 
+		<key n="91">
 			<name>[</name>
 			<desc>Toggle left indicator lights</desc>
-			<binding> 
+			<binding>
 				<command>property-toggle</command>
 				<property>/controls/lighting/indicator-left</property>
 			</binding>
 		</key>
-		<key n="93"> 
+		<key n="93">
 			<name>]</name>
 			<desc>Toggle right indicator lights</desc>
-			<binding> 
+			<binding>
 				<command>property-toggle</command>
 				<property>/controls/lighting/indicator-right</property>
 			</binding>
@@ -177,12 +177,8 @@
 </input>
 <nasal>
 	<aucafly>
-		<file>Aircraft/GTAPREM/Nasal/bulldogrs.nas</file>        
-	</aucafly>  
+		<file>Aircraft/TF-R2/Nasal/bulldogrs.nas</file>
+	</aucafly>
 </nasal>
 
 </PropertyList>
-
-
-
-
